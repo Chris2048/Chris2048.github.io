@@ -37,5 +37,5 @@ function displayChatMessage(name, text) {
    }
   }
 lastChatter = name;
-$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+$("#messagesDiv").prop({ scrollTop: $("#messagesDiv").prop("scrollHeight") });
 };
