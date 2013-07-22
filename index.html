@@ -10,8 +10,8 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>Chris2048.net</title>
-  <link href="stylesheets/styles.css" rel="stylesheet" />
-  <link href="stylesheets/pygment_trac.css" rel="stylesheet" />
+  <link href="http://chris2048.net/stylesheets/styles.css" rel="stylesheet" />
+  <link href="http://chris2048.net/stylesheets/pygment_trac.css" rel="stylesheet" />
   <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -21,57 +21,48 @@
   <div class="wrapper">
     <header>
       <h1>Chris2048.net</h1>
-      <p>
-        <a href="https://github.com/Chris2048">
-          github.com/Chris2048
-        </a>  
-      </p>
+      <small>
+        <table align="left">
+        <tr>
+        <td><b>Repo:</b></td>
+        <td><a href="https://github.com/Chris2048">github.com/Chris2048</a></td>
+        </tr>
+        <tr>
+        <td><b>Contact:</b></td>
+        <td>ghpage <i>at</i> chris2048 <i>dot</i> net</td>
+        </tr>
+        </table>
+    </small>
     </header>
 
     <section>
       <p>
         Welcome to my newly minted, github-pages based, personal website!
-        work in progress!
+        work in progress! <b>leave me a message!</b><br/>
+        <small>note: still a wip, but tell me if there are any security flaws...</small>
       </p>
 
-<pre><code>$ this is just
-$ a code example</code></pre>
-
-      <p>blah blah blah.</p>
-
-      <h3>
-        <a id="some-section" name="some-section" class="anchor"
-          href="#some-section">
-          <span class="octicon octicon-link"></span>
-        </a>
-        Some Section
-      </h3>
-
-      <p>Code in para - <code>gh-pages</code>, reference users - <a class=
-      "user-mention" href="https://github.com/blog/821">@mention</a> a GitHub
-      username to generate a link to their profile. The resulting
-      <code>&lt;a&gt;</code> element will link to the contributor's GitHub
-      Profile. For example: In 2007, Chris Wanstrath (<a class="user-mention"
-      href="https://github.com/defunkt">@defunkt</a>), PJ Hyett (<a class=
-      "user-mention" href="https://github.com/pjhyett">@pjhyett</a>), and Tom
-      Preston-Werner (<a class="user-mention" href=
-      "https://github.com/mojombo">@mojombo</a>) founded GitHub.</p>
-
-      <h3><a class="anchor" href="#support-or-contact" id="support-or-contact"
-      name="support-or-contact">
-      <span class="octicon octicon-link"></span>
-      </a>Support or Contact</h3>
-
-      <p>Having trouble with Pages? Check out the documentation at <a href=
-      "http://null">http://dev/null</a> or contact <a href=
-      "mailto:whatever@chris2048.net">meeee</a> :-|</p>
-    </section>
+      <p>
+      
+    <div id="inputBar" style="margin-bottom:4px;">
+      <input type='text' id='nameInput' placeholder='Name'>
+      <input type='text' id='messageInput' placeholder='Message'>
+  </div>
+  <div style="padding-left:20px;height:240px;border:1px solid #ccc;overflow-x:hidden;overflow-y:scroll;">
+      <div id='messagesDiv' style="color: #000;font: 16px/1.6 menlo, monospace;"></div>
+    </div>
+      </p>
 
     <footer>
       <p><small>Hosted on GitHub Pages — Theme by <a href=
       "https://github.com/orderedlist">orderedlist</a></small></p>
     </footer>
-  </div><script src="javascripts/scale.fix.js"></script> <script>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <script src="javascripts/scale.fix.js"></script>
+  <script src="script.js"></script>
+  <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
