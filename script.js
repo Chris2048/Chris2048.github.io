@@ -1,4 +1,3 @@
-
 var myDataRef = new Firebase('https://chris2048.firebaseIO.com/chat/entries');
 var lastChatter = null;
 $('#nameInput').val('anon')
@@ -28,12 +27,12 @@ myDataRef.on('child_added', function(snapshot) {
   });
 function displayChatMessage(name, text) {
   if (name == 'anon'){
-   $('#messagesDiv').append('<div><span style="font-weight: bold;color:grey;"><i>anon</i>: </span>' + text +"</div>");
+   $('#messagesDiv').append('<div><span style="font-weight: bold;color:grey;"><i>anon</i>: </span>' + escape(text) +"</div>");
   } else {
    if (lastChatter != null && name == lastChatter) {
-    $('#messagesDiv').append("<div>&nbsp;&nbsp;" + text +"</div>");
+    $('#messagesDiv').append("<div>&nbsp;&nbsp;" + escape(text) +"</div>");
    } else {
-    $('#messagesDiv').append('<div><span style="font-weight: bold;color:#CC9933;">'+ name +': </span>' + text +"</div>");
+    $('#messagesDiv').append('<div><span style="font-weight: bold;color:#CC9933;">'+ escape(name) +': </span>' + escape(text) +"</div>");
    }
   }
 lastChatter = name;
