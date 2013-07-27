@@ -1,6 +1,8 @@
 var myDataRef = new Firebase('https://chris2048.firebaseIO.com/chat/entries');
 var lastChatter = null;
-$('#nameInput').val('anon')
+$('#nameInput').val('anon');
+var comment = _.template('<div><%= username %><%- message %></div>');
+var user = _.template('<span style="font-weight: bold;color:<% print((username == "anon")?"grey":"#CC9933"); %>;"><i><%- username %></i>: </span>');
 
 String.prototype.repeat = function( num )
 {
@@ -25,16 +27,10 @@ myDataRef.on('child_added', function(snapshot) {
     var entry = snapshot.val();
     displayChatMessage(entry.chatter, entry.text);
   });
-function displayChatMessage(name, text) {
-  if (name == 'anon'){
-   $('#messagesDiv').append('<div><span style="font-weight: bold;color:grey;"><i>anon</i>: </span>' + escape(text) +"</div>");
-  } else {
-   if (lastChatter != null && name == lastChatter) {
-    $('#messagesDiv').append("<div>&nbsp;&nbsp;" + escape(text) +"</div>");
-   } else {
-    $('#messagesDiv').append('<div><span style="font-weight: bold;color:#CC9933;">'+ escape(name) +': </span>' + escape(text) +"</div>");
-   }
-  }
+function displayChatMessage(name, mess) {
+  md = $('#messagesDiv')
+  var name_el = (lastChatter != null && name == lastChatter) ? '&nbsp;&nbsp;' : user({username: name});
+  md.append(comment({username: name_el, message: mess}))
 lastChatter = name;
 $("#messagesDiv").prop({ scrollTop: $("#messagesDiv").prop("scrollHeight") });
 };
