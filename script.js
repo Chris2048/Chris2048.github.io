@@ -15,7 +15,7 @@ $('#messageInput').keypress(function (e) {
       //myDataRef.push({name: name, text: text});
       $.ajax({
         type: 'POST',
-        url: 'http://chris2048.pythonanywhere.com/chat/post',
+        url: 'http://chris2048.herokuapp.com/chat/post',
         crossDomain: true,
         data: {name: name, message: text},
         dataType: 'json'
